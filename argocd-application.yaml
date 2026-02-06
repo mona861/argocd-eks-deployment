@@ -9,7 +9,7 @@ spec:
   source:
     # For a local (non-Git) flow we use a path relative to the repo root.
     # In production you would point repoURL to your actual Git repo.
-    repoURL: git@github.com:mona861/local-argocd-blue-green-deployment.git
+    repoURL: git@github.com:mona861/argocd-eks-deployment.git
     targetRevision: main
     path: k8s-manifests/overlays/dev   # the overlay directory Argo CD should watch
 
