@@ -10,7 +10,7 @@ This repository contains instructions and configuration for installing ArgoCD, a
 - [Installation](#installation)
 - [Accessing ArgoCD UI](#accessing-argocd-ui)
 - [Create An ArgoCD Application](#installation)
-- [Troubleshooting](#troubleshooting)
+- [🔧Troubleshooting](#troubleshooting)
 - [Resources](#resources)
 
 ## Prerequisites
@@ -39,6 +39,8 @@ a loadBalancer is created for the ArgoCD dashboard.
 the public DNS of the load balancer.
 - Login using the username: admin and password in the step above
 
+(https://github.com/mona861/argocd-eks-deployment/blob/main/doc/screenshots/argo-dashboard.png)
+
 ## Create An ArgoCD Application
 The ArgoCD application will link your repo to ArgoCD gitops.
 The application can be created directly through the dashboard or
@@ -47,7 +49,7 @@ using a yaml file. To create through the yaml run
 kubectl apply -f  argocd-application.yaml
 ```
 
-## 🔧 Troubleshooting
+## 🔧Troubleshooting
 
 ### Issue: CustomResourceDefinition Annotation Too Long
 <details>
