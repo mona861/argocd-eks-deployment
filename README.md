@@ -39,6 +39,7 @@ a loadBalancer is created for the ArgoCD dashboard.
 - Open AWS dashboard and get
 the public DNS of the load balancer.
 - Login using the username: admin and password in the step above
+- Edit the password
 
 ![Application](https://github.com/mona861/argocd-eks-deployment/blob/main/doc/screenshots/argo-login.png)
 
