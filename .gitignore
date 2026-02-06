@@ -1,0 +1,6 @@
+# Terraform
+**/.terraform/
+**/*.tfstate.d
+**/.terraform*
+**/.aws*
+**/.DS_Store
