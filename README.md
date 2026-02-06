@@ -39,7 +39,8 @@ a loadBalancer is created for the ArgoCD dashboard.
 the public DNS of the load balancer.
 - Login using the username: admin and password in the step above
 
-(https://github.com/mona861/argocd-eks-deployment/blob/main/doc/screenshots/argo-dashboard.png)
+![Application](https://github.com/mona861/argocd-eks-deployment/blob/main/doc/screenshots/argo-login.png)
+
 
 ## Create An ArgoCD Application
 The ArgoCD application will link your repo to ArgoCD gitops.
@@ -48,6 +49,11 @@ using a yaml file. To create through the yaml run
 ```bash
 kubectl apply -f  argocd-application.yaml
 ```
+
+After creating the application it will be visible on the ArgoCD dashboard.
+Click on the application and your setup will be visible
+
+![Application](https://github.com/mona861/argocd-eks-deployment/blob/main/doc/screenshots/argo-dashboard.png)
 
 ## 🔧Troubleshooting
 
