@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alb
+  namespace: default
+  annotations:
+    # Internet-facing ALB
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-08fecfe295d59237d, subnet-08818be1ebe379029, subnet-05bf94beff72c10a4
+    # Use pod IPs (required for Fargate)
+    alb.ingress.kubernetes.io/target-type: instance
+
+    # Backend protocol
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+
+    # Optional but recommended
+    alb.ingress.kubernetes.io/load-balancer-name: NAMESPACE-alb
+    #alb.ingress.kubernetes.io/healthcheck-port: "5000"
+    #alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":5000}]'
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: py-app-svc
+                port:
+                  number: 80

@@ -1,0 +1,21 @@
+# kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namePrefix: dev-
+
+# Only set namespace for specific resources
+
+resources:
+- ../../base
+
+components:
+- ../common
+
+configMapGenerator:
+  - name: env-vars
+    behavior: create
+    options:
+      disableNameSuffixHash: true
+    literals:
+      - ENV=dev

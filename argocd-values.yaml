@@ -1,0 +1,19 @@
+# values.yaml
+
+server:
+  service:
+    type: LoadBalancer
+    annotations:
+      service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+    ports:
+      - name: http
+        port: 80
+        targetPort: 8080
+configs:
+  repositories: []
+
+controller:
+  replicas: 1
+
+redis:
+  enabled: true    # uses the bundled Redis; set false if you have your own

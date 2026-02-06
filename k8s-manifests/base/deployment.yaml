@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: py-app
+  name: py-app-deployment
+  namespace: NAMESPACE
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: py-app
+  template:
+    metadata:
+      labels:
+        app: py-app
+    spec:
+      serviceAccountName: NAMESPACE-demo-eks-sa
+      containers:
+      - name: py-app
+        image: rmsh8/python-green:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            memory: "32Mi"
+            cpu: "100m"
