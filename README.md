@@ -6,14 +6,15 @@ This repository contains instructions and configuration for installing ArgoCD, a
 
 ## Table of Contents
 
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Accessing ArgoCD UI](#accessing-argocd-ui)
-- [Create An ArgoCD Application](#installation)
+- [📋Prerequisites](#prerequisites)
+- [🎯Installation](#installation)
+- [💻 Accessing ArgoCD UI](#accessing-argocd-ui)
+- [➕Create An ArgoCD Application](#create-an-argocd-application)
+- [✅How To Test](#how-to-test)
 - [🔧Troubleshooting](#troubleshooting)
-- [Resources](#resources)
+- [🎨Resources](#resources)
 
-## Prerequisites
+## 📋Prerequisites
 
 Before installing ArgoCD, ensure you have:
 
@@ -21,7 +22,7 @@ Before installing ArgoCD, ensure you have:
 - `kubectl` installed and configured to communicate with your cluster
 - Sufficient permissions to create namespaces and deploy resources
 
-## Installation
+## 🎯Installation
 
 ### 1. Install ArgoCD With Helm Chart
 The script will install argo cd helm chart on your EKS cluster
@@ -31,7 +32,7 @@ sh argocd-bootstrap.sh
 ```
 Note the password shown as output after running the script
 
-## Accessing ArgoCD UI
+## 💻Accessing ArgoCD UI
 
 - As specified in argocd-values.yaml that's passed while installing argocd through helm
 a loadBalancer is created for the ArgoCD dashboard. 
@@ -42,7 +43,7 @@ the public DNS of the load balancer.
 ![Application](https://github.com/mona861/argocd-eks-deployment/blob/main/doc/screenshots/argo-login.png)
 
 
-## Create An ArgoCD Application
+## ➕Create An ArgoCD Application
 The ArgoCD application will link your repo to ArgoCD gitops.
 The application can be created directly through the dashboard or
 using a yaml file. To create through the yaml run
@@ -54,6 +55,14 @@ After creating the application it will be visible on the ArgoCD dashboard.
 Click on the application and your setup will be visible
 
 ![Application](https://github.com/mona861/argocd-eks-deployment/blob/main/doc/screenshots/argo-dashboard.png)
+
+## ✅How To Test
+- Edit anything in the manifests in k8s-manifests/base e.g.
+  - Modify image in deployment.yaml
+  - Modify replicas count
+- Push your changes to git
+- Check the dashboard. Gitops will identify changes and sync them
+- Applied changes will be visible in the dashboard
 
 ## 🔧Troubleshooting
 
@@ -80,7 +89,7 @@ Install Argo CD using HELM
 
 </details>
 
-## Resources
+## 🎨Resources
 
 - [Official ArgoCD Documentation](https://argo-cd.readthedocs.io/)
 - [ArgoCD GitHub Repository](https://github.com/argoproj/argo-cd)
